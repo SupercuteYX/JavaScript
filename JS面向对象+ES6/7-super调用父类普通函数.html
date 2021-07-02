@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father {
+            say() {
+                return 'father is here';
+                //console.log('father is here'); 
+                //console.log+'haha'会导致undefined haha，所以用return字符串
+            }
+        }
+
+        class Son extends Father {
+            say() {
+                console.log('son is here');
+                console.log(super.say() + ' haha');
+                //super.say()就是调用父类的普通函数say()
+            }
+        }
+
+        var son = new Son();
+        son.say(); //son is here //father is here haha
+        // 1. 继承中，如果实例化子类输出一个方法，先看子类有没有这个方法，如果有就执行
+        // 2.继承中，如果子类里没有，就去父类里找，如果有，就执行父类里的 （就近原则）
+    </script>
+</body>
+</html>

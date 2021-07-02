@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 创建类class 类名首字母大写 
+        class Star {
+            //constructor为自动调用,在new Star的时候就会调用
+            constructor(uname){
+                this.uname = uname;
+            }
+
+            //创建一个function
+            //1.class里的函数不用function这个关键字 2.多个func不用用逗号隔开
+            sing(song){
+                    console.log(this.uname + song);
+                }
+            }
+
+        // 2. 利用class创建对象object 关键词：new
+        var ldh = new Star('刘德华');
+        ldh.sing('lalala');
+    </script>
+</body>
+</html>

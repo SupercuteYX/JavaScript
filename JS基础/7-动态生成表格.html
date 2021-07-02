@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: center;
+        }
+
+        td, th {
+            border: 1px solid #333;
+        }
+
+        thead tr{
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        //create data，store as object array
+        var datas = [
+            {
+                name: "Allen",
+                subuject:'JavaScript',
+                score:100
+            },{
+                name: "Bobi",
+                subuject:'JavaScript',
+                score:98
+            },{
+                name: "Cathy",
+                subuject:'JavaScript',
+                score:99
+            },{
+                name: "Danny",
+                subuject:'JavaScript',
+                score:88
+            },{
+                name: "Emy",
+                subuject:'JavaScript',
+                score:92
+            }
+        ];
+        // 1. 获取位置
+        var tbody = document.querySelector('tbody');
+        // 2.创建行 <tr>
+        for (i = 0; i<datas.length; i++){
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+            // 3.创建单元格
+            for (var k in datas[i]){
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                // 单元格加入数据
+                td.innerHTML = datas[i][k];
+            }
+        // 4. 创建最后一个 删除 的单元格
+        var td = document.createElement('td'); //上面小循环里的td出了循环不可用了
+        td.innerHTML = "<a href='javascript:;'>delete</a>";
+        tr.appendChild(td);
+        }
+        //以上都是创建单元格<tr>和<td>，删除功能写在下面（不在同一个function）
+        // 5. 创建删除功能
+        var as = document.querySelectorAll('a');
+        for (i = 0; i<as.length; i++){
+            as[i].onclick = function(){
+            // tr是tbody的child，tr是a的parent的parent           
+            tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+</html>

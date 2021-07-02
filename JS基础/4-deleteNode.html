@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Delete</button>
+    <ul>
+        <li>Alian</li>
+        <li>Bob</li>
+        <li>Cici</li>
+    </ul>
+
+    <script>
+        // 1. get element
+        var ul = document.querySelector('ul');
+        var btn = document.querySelector('button');
+        // 2. delete specific child element node : node.removeChild(child)
+        // ul.removeChild(ul.children[0]); //delete first <li>
+        // 2. delete each child element node by click button
+        btn.onclick = function(){
+            if (ul.children.length == 0) {
+                this.disabled = true;
+                alert('nothing can be deleted!');
+            } else{
+            ul.removeChild(ul.children[0]);
+            }
+        }
+    </script>
+</body>
+</html>

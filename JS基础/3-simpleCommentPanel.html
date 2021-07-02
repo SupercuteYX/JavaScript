@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comment panel</title>
+</head>
+<body>
+    <textarea name="" id=""></textarea>
+    <button>post</button>
+    <ul>
+
+    </ul>
+    <script>
+        // 1. get elements needed
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        // 2. function
+        btn.onclick = function(){
+            // check user input
+            if(text.value == ''){
+                alert('you need key in somethig!');
+                return false; //end
+            } else {
+            // a. create element
+            var li = document.createElement('li');
+            li.innerHTML = text.value;
+            // b. add element
+            // style 1. add each after last
+            //ul.appendChild(li);
+            // style 2. add each before last
+            ul.insertBefore(li,ul.children[0]);
+            }
+        }
+    </script>
+</body>
+</html>
